@@ -12,7 +12,7 @@ byte noPins = 4;
 long inputTime = 0;
 
 void setup() {
-  delay(5000);
+  delay(3000);
   Serial.begin(9600);
   Reset();
 }
@@ -86,6 +86,7 @@ void DoLoseProcess(){
 void loop() {
   if(!wait){
     setPinDirection(OUTPUT);
+    randomSeed(analogRead(A0));
     sequence[curLen] = pins[random(0,noPins)];
     curLen++;
     playSequence();   
@@ -125,6 +126,7 @@ void loop() {
     }else{
       if(btnDwn && digitalRead(lastInput) == 0){
         btnDwn = false;
+        delay(20);
         if(resetFlag){
           DoLoseProcess(); 
         }

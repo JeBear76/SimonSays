@@ -103,7 +103,7 @@ void loop() {
       expRd = sequence[inputCount];
       Serial.print("Expected: ");
       Serial.println(expRd);
-      for(int i = 0; i <= noPins; i++){
+      for(int i = 0; i < noPins; i++){
         if(pins[i]==expRd)
           continue;
         if(digitalRead(pins[i]) == 1){
